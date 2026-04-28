@@ -101,7 +101,7 @@ const ProductHighlightCard = ({ name, desc, img }) => (
 
 export default function ProductHighlights() {
   return (
-    <Box sx={{ py: { xs: 5, md: 7 }, backgroundColor: "#F5F5F0" }}>
+    <Box sx={{ py: { xs: 5, md: 7 }}}>
       <Container maxWidth="lg">
         <Box
           sx={{

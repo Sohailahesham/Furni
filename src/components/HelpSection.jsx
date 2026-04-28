@@ -10,7 +10,7 @@ const CHECK_ITEMS = [
 
 export default function HelpSection() {
   return (
-    <Box sx={{ py: { xs: 7, md: 10 }, backgroundColor: "#F5F5F0" }}>
+    <Box sx={{ py: { xs: 7, md: 10 } }}>
       <Container maxWidth="lg">
         <Box
           sx={{
