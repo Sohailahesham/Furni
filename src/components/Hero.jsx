@@ -1,46 +1,39 @@
-import { Box, Container, Grid, Typography, Button, Stack } from "@mui/material";
+import { Box, Container, Typography, Button, Stack } from "@mui/material";
 
 export default function Hero() {
   return (
     <Box
       sx={{
         backgroundColor: "#3b5d50",
-        minHeight: { xs: 480, md: 580 },
+        minHeight: { xs: "auto", md: 580 },
         position: "relative",
         overflow: "hidden",
         display: "flex",
         alignItems: "center",
-        paddingY: { xs: 6, md: 0 },
+        py: { xs: 8, md: 0 },
       }}
     >
-      <Box
-        sx={{
-          position: "absolute",
-          top: 40,
-          right: 20,
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
-      ></Box>
 
-      <Container
-        maxWidth="lg"
-        sx={{
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <Grid container alignItems="center" spacing={4}>
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            gap: { xs: 5, md: 4 },
+          }}
+        >
           {/* ── Left: Text ── */}
-          <Grid item xs={12} md={6} sx={{ maxWidth: "42%" }}>
+          <Box sx={{ flex: 1, minWidth: 0 }}>
             <Typography
               variant="h3"
               component="h1"
               sx={{
                 color: "white",
-                fontFamily: "'Lato', sans-serif",
+                fontFamily: "'Playfair Display', sans-serif",
                 fontWeight: 700,
-                letterSpacing: 1,
+                fontSize: { xs: "2rem", sm: "2.4rem", md: "2.8rem", lg: "3.2rem" },
+                lineHeight: 1.2,
                 mb: 3,
               }}
             >
@@ -53,16 +46,17 @@ export default function Hero() {
                 color: "rgba(255,255,255,0.8)",
                 fontFamily: "'Lato', sans-serif",
                 fontWeight: 400,
-                fontSize: "1.1rem",
-                lineHeight: 1.6,
+                fontSize: { xs: "0.95rem", md: "1.05rem" },
+                lineHeight: 1.8,
                 mb: 4,
+                maxWidth: 440,
               }}
             >
               Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
               velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
             </Typography>
 
-            <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap" }}>
+            <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap", gap: 2 }}>
               <Button
                 variant="contained"
                 size="large"
@@ -77,10 +71,7 @@ export default function Hero() {
                   borderRadius: "50px",
                   textTransform: "none",
                   boxShadow: "none",
-                  "&:hover": {
-                    backgroundColor: "#ffc107de",
-                    boxShadow: "none",
-                  },
+                  "&:hover": { backgroundColor: "#e6ac00", boxShadow: "none" },
                 }}
               >
                 Shop Now
@@ -108,18 +99,16 @@ export default function Hero() {
                 Explore
               </Button>
             </Stack>
-          </Grid>
+          </Box>
 
           {/* ── Right: Sofa image ── */}
-          <Grid
-            item
-            xs={12}
-            md={6}
+          <Box
             sx={{
+              flex: 1,
+              minWidth: 0,
               display: "flex",
               justifyContent: { xs: "center", md: "flex-end" },
-              alignItems: { xs: "flex-start", md: "center" },
-              mt: { xs: 4, md: 0 },
+              alignItems: "flex-end",
             }}
           >
             <Box
@@ -127,13 +116,16 @@ export default function Hero() {
               src="https://themewagon.github.io/furni/images/couch.png"
               alt="Modern sofa"
               sx={{
-                width: { xs: "100%", md: "auto" },
-                maxWidth: { xs: 320, md: 520, lg: 620 },
+                width: "100%",
+                maxWidth: { xs: 320, sm: 420, md: 520, lg: 620 },
                 height: "auto",
+                objectFit: "contain",
+                filter: "drop-shadow(0 24px 40px rgba(0,0,0,0.2))",
+                transform: "translateY(8px)",
               }}
             />
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );
